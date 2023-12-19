@@ -6,7 +6,7 @@ import { getCityByNameService } from '../../services/getCityByNameService';
 
 export function SelectCity({ onSelect }) {
   const [city, setCity] = useState();
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(''); // Ao alterar o valor o TypeScript já interpreta como uma mudança de tipo, por inferência de tipo.
   const [isLoading, setIsLoading] = useState(false);
 
   async function getCities(name: string) {
