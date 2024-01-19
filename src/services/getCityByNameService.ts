@@ -7,7 +7,7 @@ export interface CityProps {
   latitude: number;
 }
 
-export async function getCityByNameService(name: string) {
+export async function getCityByNameService(name: string): Promise<CityProps[]> {
   try {
     const { data } = await api.get(`/weather?q=${name}`);
 
