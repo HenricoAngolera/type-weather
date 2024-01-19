@@ -1,8 +1,9 @@
 import './styles.css'
 import { Spin } from '../Spin'
+import { InputHTMLAttributes } from 'react';
 
-interface Props {
-  isLoading?: boolean;
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  isLoading?: boolean
 }
 
 export function Input({ isLoading = false, ...rest }: Props) {
