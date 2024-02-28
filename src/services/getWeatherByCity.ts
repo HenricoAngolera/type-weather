@@ -11,6 +11,7 @@ interface GetWeatherByCityProps {
 
 export async function getWeatherByCity({ latitude, longitude } : GetWeatherByCityProps) {
   const { data } = await api.get(`/forecast?lat=${latitude}&lon=${longitude}`);
+  console.log(data)
 
   const { main, weather, wind, pop } = data.list[0];
 
