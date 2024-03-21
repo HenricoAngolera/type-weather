@@ -9,8 +9,29 @@ interface GetWeatherByCityProps {
   longitude: number;
 }
 
+export interface WeatherApiResponseProps {
+  list: {
+    pop: number;
+    main: {
+      temp: number;
+      temp_min: number;
+      temp_max: number;
+      feels_like: number;
+      humidity: number;
+      temp_kf: number;
+    };
+    wind: {
+      speed: number;
+    };
+    weather: {
+      main: string;
+      description: string;
+    } [];
+  }[];
+} 
+
 export async function getWeatherByCity({ latitude, longitude } : GetWeatherByCityProps) {
-  const { data } = await api.get(`/forecast?lat=${latitude}&lon=${longitude}`);
+  const { data } = await api.get<WeatherApiResponseProps>(`/forecast?lat=${latitude}&lon=${longitude}`);
   console.log(data)
 
   const { main, weather, wind, pop } = data.list[0];
