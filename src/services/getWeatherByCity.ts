@@ -2,14 +2,12 @@ import dayjs from "dayjs";
 
 import { api } from "./api";
 import { getNextDays } from "../utils/getNextDays";
-import { weatherIcons } from "../utils/weatherIcons";
+import { weatherIcons, WeatherIconsKeysProps } from "../utils/weatherIcons";
 
 interface GetWeatherByCityProps {
   latitude: number;
   longitude: number;
 }
-
-type WeatherIconsKeyProps = "Clouds" | "Rain" | "Clear" | "Snow";
 
 export interface WeatherApiResponseProps {
   list: {
@@ -26,7 +24,7 @@ export interface WeatherApiResponseProps {
       speed: number;
     };
     weather: {
-      main: WeatherIconsKeyProps;
+      main: WeatherIconsKeysProps;
       description: string;
     } [];
   }[];
