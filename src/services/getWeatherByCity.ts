@@ -32,9 +32,16 @@ export interface WeatherApiResponseProps {
   }[];
 } 
 
+export interface WeatherResponseProps {
+  temp: number;
+  temp_min: number;
+  temp_max: number;
+  description: string;
+  details: typeof weatherIcons['Clear'];
+}
+
 export async function getWeatherByCity({ latitude, longitude } : GetWeatherByCityProps) {
   const { data } = await api.get<WeatherApiResponseProps>(`/forecast?lat=${latitude}&lon=${longitude}`);
-  console.log(data)
 
   const { main, weather, wind, pop } = data.list[0];
 
